@@ -1,11 +1,15 @@
-import React from "react";
-
+import React,{useState} from "react";
+import item from "../data/items"
 function Item({ name, category }) {
+      const[Buttons,setButtons]=useState(false)
+      function Items2(){
+    setButtons((Buttons)=>!Buttons)
+  }
   return (
-    <li className="">
-      <span>{name}</span>
+    <li className={Buttons ? "in-cart" : "" }>
+      <span>{name=item.name}</span>
       <span className="category">{category}</span>
-      <button className="add">Add to Cart</button>
+      <button className="add" onClick={Items2}>Add to Cart</button>
     </li>
   );
 }
