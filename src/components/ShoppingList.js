@@ -2,12 +2,11 @@ import React,{useState} from "react";
 import Item from "./Item";
 
 function ShoppingList({ items }) {
-  const [selectedCategory,setselectedCategory]=useState(false)
-  function category2(){
-    setselectedCategory((selectedCategory)=>!selectedCategory)
+  const [selectedCategory,setselectedCategory]=useState("All")
+  function category2(event){
+    setselectedCategory(event.target.value)
   }
-  function allProduce(){
-   
+  function allProduce(){   
    const produce=Item.filter(()=>Item.name ?Item.category==="produce":"")
     return (
       <>
@@ -41,10 +40,10 @@ function ShoppingList({ items }) {
     <div className="ShoppingList">
       <div className="Filter">
         <select name="filter">
-          <option value="All">Filter by category</option>
-          <option value="Produce" onClick={allProduce}>Produce</option>
-          <option value="Dairy" onClick={allDairy}>Dairy</option>
-          <option value="Dessert" onClick={allDessert}>Dessert</option>
+          <option value="All" onClick={category2}>Filter by category</option>
+          <option value="Produce" onChange={allProduce}>Produce</option>
+          <option value="Dairy" onChange={allDairy}>Dairy</option>
+          <option value="Dessert" onChange={allDessert}>Dessert</option>
         </select>
       </div>
       <ul className="Items">

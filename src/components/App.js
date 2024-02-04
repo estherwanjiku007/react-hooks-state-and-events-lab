@@ -7,19 +7,16 @@ function App() {
    function replacer2(){
     setReplacer((replacer)=>!replacer)
    }
-   const [replacer3,setReplacer3]=useState(false) 
-   function replacer4(){
-    setReplacer3((replacer3)=>!replacer3)
-   }
+   
   // replace 'false' with a state variable that can be toggled between true and false
   // this will be used for the Dark Mode Toggle feature
-  const appClass = false ? "App dark" : "App light"
+  //const appClass = replacer ? "App dark" : "App light"
 
   return (
-    <div className={replacer ? "App dark":"App light"}>
+    <div className={"APP" +(replacer ? " dark" : " light")}>
       <header>
         <h2>Shopster</h2>
-        <button>{replacer3 ? "DARK MODE" : "LIGHT"}</button>
+        <button onClick={replacer2}>{replacer ? "dark " : "light "}mode</button>
       </header>
       <ShoppingList items={itemData} />
     </div>
