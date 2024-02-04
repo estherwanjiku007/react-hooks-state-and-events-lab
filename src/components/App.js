@@ -13,7 +13,7 @@ function App() {
   //const appClass = replacer ? "App dark" : "App light"
 
   return (
-    <div className={"APP" +(replacer ? " dark" : " light")}>
+    <div className={replacer ? "APP dark" : "APP light"}>
       <header>
         <h2>Shopster</h2>
         <button onClick={replacer2}>{replacer ? "dark " : "light "}mode</button>
