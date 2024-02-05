@@ -1,6 +1,6 @@
 import React,{useState} from "react";
-import item from "../data/items"
-function Item({ name=item.name, category=item.category }) {
+//import item from "../data/items"
+function Item({ name, category }) {
       const[Buttons,setButtons]=useState(false)
       function Items2(){
     setButtons((Buttons)=>!Buttons)

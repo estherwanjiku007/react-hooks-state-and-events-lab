@@ -6,34 +6,27 @@ function ShoppingList({ items }) {
   function category2(event){
     setselectedCategory(event.target.value)
   }
-  function allProduce(){   
-   const produce=Item.filter(()=>Item.name ?Item.category==="produce":"")
-    return (
-      <>
+  function allProduce(){  
+    return (      
       <div>
-        <li>{produce}</li>
+        <li>{items.filter((item)=>item.name ?selectedCategory==="produce":"")}</li>
       </div>
-      </>
+     
     )
   }
-  function allDairy(){
-   const dairy=Item.filter(()=>Item.name ?Item.category==="dairy" :"")
-    return(
-      <>
+  function allDairy(){   
+    return(     
       <li>
-        {dairy}
+        {items.filter((item)=>item.name ?selectedCategory==="dairy" :"")}
       </li>
-      </>
+      
     )
   }
-  function allDessert(){
-   const dessert=Item.filter(()=>Item.name ?Item.category==="dessert":"")
-    return (
-      <>
+  function allDessert(){   
+    return (      
       <div>
-        <li>{dessert}</li>
-      </div>
-      </>
+        <li>{items.filter((item)=>item.name ?selectedCategory==="dessert":"")}</li>
+      </div>      
     )
   }
   return (
