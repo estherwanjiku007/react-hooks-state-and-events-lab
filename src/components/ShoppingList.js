@@ -2,11 +2,23 @@ import React,{useState} from "react";
 import Item from "./Item";
 
 function ShoppingList({ items }) {
-  const [selectedCategory,setselectedCategory]=useState("All")
-  function category2(event){
-    setselectedCategory(event.target.value)
+  console.log(items)
+  const [filterBy, setFilter] = useState("All")
+
+  function handleFilter(e){
+    // console.log(e.target.value)
+    setFilter(e.target.value)
   }
-  function allProduce(){  
+
+  // console.log(filterBy)
+  const filteredItems = items.filter(item => {
+    if(filterBy === "All"){
+      return true
+    }else{
+      return item.category === filterBy
+    }
+  })
+  /*function allProduce(){  
     return (      
       <div>
         <li>{items.filter((item)=>item.name ?selectedCategory==="produce":"")}</li>
@@ -28,15 +40,15 @@ function ShoppingList({ items }) {
         <li>{items.filter((item)=>item.name ?selectedCategory==="dessert":"")}</li>
       </div>      
     )
-  }
+  }*/
   return (
     <div className="ShoppingList">
-      <div className="Filter">
+      <div className="Filter" onChange={handleFilter}>
         <select name="filter">
-          <option value="All" onClick={category2}>Filter by category</option>
-          <option value="Produce" onChange={allProduce}>Produce</option>
-          <option value="Dairy" onChange={allDairy}>Dairy</option>
-          <option value="Dessert" onChange={allDessert}>Dessert</option>
+          <option value="All" >Filter by category</option>
+          <option value="Produce" >Produce</option>
+          <option value="Dairy" >Dairy</option>
+          <option value="Dessert" >Dessert</option>
         </select>
       </div>
       <ul className="Items">

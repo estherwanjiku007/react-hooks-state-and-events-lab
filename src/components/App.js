@@ -13,10 +13,10 @@ function App() {
   //const appClass = replacer ? "App dark" : "App light"
 
   return (
-    <div className={replacer ? "APP dark" : "APP light"}>
+    <div className={replacer ? "App dark" : "App light"}>
       <header>
         <h2>Shopster</h2>
-        <button onClick={replacer2}>{replacer ? "dark " : "light "}mode</button>
+        <button onClick={()=>setReplacer(!replacer)}>{replacer ? "Dark " : "Light "}Mode</button>
       </header>
       <ShoppingList items={itemData} />
     </div>
