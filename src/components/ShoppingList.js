@@ -3,7 +3,7 @@ import Item from "./Item";
 
 function ShoppingList({ items }) {
   console.log(items)
-  const [filterBy, setFilter] = useState("All")
+  const [filterBy2, setFilter] = useState("All")
 
   function handleFilter(e){
     // console.log(e.target.value)
@@ -12,10 +12,10 @@ function ShoppingList({ items }) {
 
   // console.log(filterBy)
   const filteredItems = items.filter(item => {
-    if(filterBy === "All"){
+    if(filterBy2=== "All"){
       return true
     }else{
-      return item.category === filterBy
+      return item.category === filterBy2
     }
   })
   /*function allProduce(){  
@@ -52,7 +52,7 @@ function ShoppingList({ items }) {
         </select>
       </div>
       <ul className="Items">
-        {items.map((item) => (
+        {filteredItems.map((item) => (
           <Item key={item.id} name={item.name} category={item.category} />
         ))}
       </ul>
