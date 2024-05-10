@@ -6,11 +6,11 @@ function ShoppingList({ items }) {
   const [filterBy2, setFilter] = useState("All")
 
   function handleFilter(e){
-    // console.log(e.target.value)
+   
     setFilter(e.target.value)
   }
 
-  // console.log(filterBy)
+  
   const filteredItems = items.filter(item => {
     if(filterBy2=== "All"){
       return true
@@ -18,29 +18,6 @@ function ShoppingList({ items }) {
       return item.category === filterBy2
     }
   })
-  /*function allProduce(){  
-    return (      
-      <div>
-        <li>{items.filter((item)=>item.name ?selectedCategory==="produce":"")}</li>
-      </div>
-     
-    )
-  }
-  function allDairy(){   
-    return(     
-      <li>
-        {items.filter((item)=>item.name ?selectedCategory==="dairy" :"")}
-      </li>
-      
-    )
-  }
-  function allDessert(){   
-    return (      
-      <div>
-        <li>{items.filter((item)=>item.name ?selectedCategory==="dessert":"")}</li>
-      </div>      
-    )
-  }*/
   return (
     <div className="ShoppingList">
       <div className="Filter" onChange={handleFilter}>
